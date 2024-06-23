@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<body>
+    <div class="admindash">
+        <h1 class="admin">Admin Dashboard</h1>
+        
+        <label for="name">Movie name:</label>
+        <input type="text" id="name" name="name" required class="admininput"><br>
+
+        <label for="cc">Cast:</label>
+        <input type="text" id="cast" name="cast" required class="admininput"><br>
+
+        <label for="watch">Where to watch?</label><br>
+        <label><input type="checkbox" id="watchNetflix" name="watch" required class="watchinput"><iconify-icon icon="logos:netflix-icon" width="30" height="30"></iconify-icon>Netflix</label><br>
+        <label><input type="checkbox" id="watchHotstar" name="watch" required class="watchinput"><img width="38" height="38" src="https://img.icons8.com/doodle/48/disney-plus.png" alt="disney-plus"/>Hotstar</label><br>
+        <label><input type="checkbox" id="watchPrime" name="watch" required class="watchinput"><img width="30" height="30" src="https://img.icons8.com/color/48/amazon-prime-video.png" alt="amazon-prime-video"/>Amazon Prime</label><br>
+        <label><input type="checkbox" id="watchJio" name="watch" required class="watchinput"><iconify-icon icon="arcticons:jiocinema" style="color: #d9008d;" width="30" height="30"></iconify-icon>Jio Cinema</label><br>
+        <label><input type="checkbox" id="watchYoutube" name="watch" required class="watchinput"><img width="30" height="30" src="https://img.icons8.com/color/30/youtube-play.png" alt="youtube-play"/>Youtube</label><br>
+        <label><input type="checkbox" id="watchAppleTV" name="watch" required class="watchinput"><img width="30" height="30" src="https://img.icons8.com/color/48/apple-tv.png" alt="apple-tv"/>Apple TV</label><br>
+        
+        <br><label for="poster">Add poster:</label><br>
+        <input type="file" id="cast" name="cast" required ><br>
+
+        <label for="desc">Description:</label>
+        <input type="text" id="desc" name="desc" size="40" class="admininput"><br>
+
+        <label for="watch">Genre:</label><br>
+        <label><input type="radio" id="thril" name="genre" value="thril" class="watchinput">Thriller</label><br>
+        <label><input type="radio" id="anim" name="genre" value="anim" class="watchinput">Animated</label><br>
+        <label><input type="radio" id="com" name="genre" value="com" class="watchinput">Comedy</label><br>
+        <label><input type="radio" id="romcom" name="genre" value="romcom" class="watchinput">Rom-Com</label><br>
+        <label><input type="radio" id="horr" name="genre" value="hor" class="watchinput">Horror</label><br>
+
+        
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="login-box">
+      <div class="homebutton">
+        <button class="homebtn" onclick="window.location.href='index.html'"><i class="fa fa-home" style="font-size:30px ;"></i></button>
+      </div>
+      <form name="RegForm" onsubmit="return login_js()" method="post" action="login.php"><br><br>
+        <h2 style="font-family: 'Kalam', cursive;">Login</h2>
+            <label for="username">Username</label>
+            <input type="text" placeholder="Username" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" name="password" required>
+
+            <button class="loginbtn">Log In</button>
+            <!-- <div class="social">
+              <div class="go"><i class="fa fa-google"></i>  Google</div>
+              <div class="fb"><i class="fa fa-facebook"></i>  Facebook</div>
+            </div> -->
+            
+            <br><br>
+            <div class="noacc" style="text-align: center;">
+              <a style="color:white;" href="signup.php">Don't have an account? Sign up</a>
+            </div>
+
+            <div id="loginSuccessPopup" class="popup">
+                <div class="popup-content">
+                    <p>Login successful!</p>
+                    <button onclick="redirectToHomePage()">Go to Home Page</button>
+                </div>
+            </div>
+      </form>    
+    </div>
+
+    
+
+</body> 
+<script type="text/javascript">
+    function login_js() {
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+    var popup = document.getElementById("loginSuccessPopup");
+
+    var u_val = /^[A-Za-z0-9]*$/;
+
+    if (!u_val.test(user)) {
+        alert('Username is incorrect. Must contain alphabets and numbers only');
+        return false;
+    }
+    if (pass.length < 6) {
+        alert("Password minimum length is 6");
+        return false;
+    }
+    if (pass.length > 12) {
+        alert("Password has reached its maximum limit!!!");
+        return false;
+    } else {
+        popup.style.display = "grid";
+        return false; 
+    }
+}
+
+function redirectToHomePage() {
+    window.location.href = "index.html";
+}
+</script>
+</html>
+<?php
+// Start a PHP session
+session_start();
+
+// Simulate a user database (replace with your actual user database)
+$valid_users = array(
+    'user1' => 'password1',
+    'user2' => 'password2',
+);
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    // Check if the provided username and password match a valid user
+    if (isset($valid_users[$username]) && $valid_users[$username] == $password) {
+        // Set a session variable to indicate the user is logged in
+        $_SESSION["username"] = $username;
+
+        // Redirect to a success page or perform other actions
+        header("Location: success.php");
+        exit();
+    } else {
+        // Redirect to a login error page or display an error message
+        header("Location: login_error.php");
+        exit();
+    }
+}
+?>
